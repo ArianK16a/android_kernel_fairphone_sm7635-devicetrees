@@ -65,7 +65,9 @@
 
 	ddr-regions { };
 
-	firmware: firmware {};
+	firmware: firmware {
+		qcom_scm: qcom_scm { };
+	};
 
 	cpus {
 		#address-cells = <2>;
