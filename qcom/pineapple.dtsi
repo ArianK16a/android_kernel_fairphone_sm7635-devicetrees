@@ -2708,10 +2708,6 @@
 		compatible = "qcom,c1dcvs-v2";
 	};
 
-	qcom_mpam: qcom,mpam {
-		compatible = "qcom,mpam";
-	};
-
 	qcom_dynpf: qcom,dynpf {
 		compatible = "qcom,dynpf";
 	};
