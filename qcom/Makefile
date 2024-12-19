@@ -685,6 +685,15 @@ sdmsteppeauto-overlays-dtb-$(CONFIG_ARCH_SA6155) += $(SA6155_BOARDS) $(SA6155P_B
 
 dtb-y += $(sdmsteppeauto-dtb-y)
 
+FPS_BASE_DTB += fp6.dtb
+FPS_BOARDS += fp6-sku-600-overlay.dtbo
+
+fps-dtb-$(CONFIG_ARCH_FPSPRING) += $(call add-overlays, $(FPS_BOARDS),$(FPS_BASE_DTB))
+
+fps-overlays-dtb-$(CONFIG_ARCH_FPSPRING) += $(FPS_BOARDS) $(FPS_BASE_DTB)
+
+dtb-y += $(fps-dtb-y)
+
 always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
 subdir-y        += audio bt camera data display dsp eSE eva fingerprint graphics mm mmrm mm-sys nfc synx video wlan

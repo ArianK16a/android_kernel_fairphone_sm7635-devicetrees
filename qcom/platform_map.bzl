@@ -648,6 +648,15 @@ _platform_map = {
             {"name": "volcano6i-mtp-STSafe320-brahma-overlay.dtbo"},
         ],
     },
+    "fps": {
+        "dtb_list": [
+            {"name": "fp6.dtb"},
+        ],
+        "dtbo_list": [
+            {"name": "fp6-sku-600-overlay.dtbo"},
+        ],
+        "binary_compatible_with": ["cliffs", "pineapple", "volcano"],
+    },
 }
 
 def _get_dtb_lists(target, dt_overlay_supported):
