@@ -6,6 +6,8 @@
 
 add-overlays = $(foreach o,$1,$(foreach b,$2,$(eval $(basename $b)-$(basename $o)-dtbs = $b $o) $(basename $b)-$(basename $o).dtb))
 
+ifneq ($(CONFIG_ARCH_FPSPRING), y)
+
 # pineapple-dtb-y is list of DTBs to install when doing non-overlay build
 # pineapple-overlays-dtb-y is list of DTBs and DTBOs to install when doing overlay-supported build
 # see DTB_TYPES from scripts/Makefile.dtbinst and install_dtbs from build.config.msm.common
@@ -685,6 +687,8 @@ sdmsteppeauto-overlays-dtb-$(CONFIG_ARCH_SA6155) += $(SA6155_BOARDS) $(SA6155P_B
 
 dtb-y += $(sdmsteppeauto-dtb-y)
 
+else
+
 FPS_BASE_DTB += fp6.dtb
 FPS_BOARDS += fp6-sku-600-overlay.dtbo
 FPS_BOARDS += fp6-sku-603-overlay.dtbo
@@ -699,6 +703,8 @@ fps-dtb-$(CONFIG_ARCH_FPSPRING) += $(call add-overlays, $(FPS_BOARDS),$(FPS_BASE
 fps-overlays-dtb-$(CONFIG_ARCH_FPSPRING) += $(FPS_BOARDS) $(FPS_BASE_DTB)
 
 dtb-y += $(fps-dtb-y)
+
+endif
 
 always-y        := $(dtb-y)
 subdir-y        := $(dts-dirs)
