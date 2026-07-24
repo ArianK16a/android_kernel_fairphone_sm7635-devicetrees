@@ -33,3 +33,7 @@
 		};
 	};
 };
+
+&emkit_info {
+	fairphone,switch_state_gpio = <&tlmm 107 GPIO_ACTIVE_HIGH>;
+};
